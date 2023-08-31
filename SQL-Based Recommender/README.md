@@ -6,3 +6,5 @@ CREATE TABLE recommended_product_temp (
   recommendation_score NUMERIC
 );
 ```
+
+Optionally delete it after tracking the function: `DROP TABLE recommended_product_temp;`
