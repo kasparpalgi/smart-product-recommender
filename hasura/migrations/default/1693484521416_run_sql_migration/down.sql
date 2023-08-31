@@ -1,0 +1,6 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- CREATE TABLE recommended_product_temp (
+--   product_id INT,
+--   recommendation_score NUMERIC
+-- );

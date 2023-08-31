@@ -1,0 +1,9 @@
+query ProductReccomendations($user_uuid: uuid!) {
+  recommend_products_based_on_likes(
+    args: { user_uuid: $user_uuid }
+    order_by: { recommendation_score: asc }
+  ) {
+    product_id
+    recommendation_score
+  }
+}

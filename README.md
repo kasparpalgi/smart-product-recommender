@@ -6,7 +6,7 @@ Hasura & PostgreSQL hosted in NHost free account. Password publickly in the conf
 
 ### SQL-Based Recommender
 
-Improve the SQL function [recommend_products_based_on_likes.sql](<SQL-Based Recommender/recommend_products_based_on_likes.sql>)to carry out some basic recommendations. Find the top C (eg. 3-4) products that are most often bought and/or liked by users who liked/viewed/bought the same products as the current user. Finally, I should take in consideration the order/like/view date and give more weight to the more recent ones.
+Improve the SQL function [recommend_products_based_on_likes.sql](<SQL-Based Recommender/recommend_products_based_on_likes.sql>)to carry out some basic recommendations. Find the top X (eg. 3-4) products that are most often bought and/or liked by users who liked/viewed/bought the same products as the current user. Finally, I should take in consideration the order/like/view date and give more weight to the more recent ones.
 
 ### Collaborative Filtering & Machine Learning
 For collaborative filtering, I consider to use libraries like (Surprise)[https://surpriselib.com], (scikit-learn)[https://scikit-learn.org] or similar to do the heavy lifting.

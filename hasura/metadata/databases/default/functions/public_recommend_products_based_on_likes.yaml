@@ -1,0 +1,3 @@
+function:
+  name: recommend_products_based_on_likes
+  schema: public
