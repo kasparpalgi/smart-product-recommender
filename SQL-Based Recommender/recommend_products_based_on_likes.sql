@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION recommend_products_based_on_likes(user_uuid UUID, limit_count INT)
-RETURNS TABLE (product_id INT, recommendation_score NUMERIC) AS $$
+RETURNS SETOF products AS $$
 BEGIN
   RETURN QUERY
   WITH 
