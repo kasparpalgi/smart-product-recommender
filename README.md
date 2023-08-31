@@ -1,6 +1,6 @@
 # Smart product reccomender
 
-Hasura & PostgreSQL (PL/pgSQL STABLE) hosted in NHost free account. Password publickly in the config file.
+Hasura & PostgreSQL (PL/pgSQL STABLE) hosted in NHost free account. Password publickly in the config file. Another matchmaking project better explained: https://kasparlpalgi.medium.com/hasura-graphql-engine-sql-functions-unveiling-user-similarities-and-crafting-fbec7368784
 
 ## The plan
 
