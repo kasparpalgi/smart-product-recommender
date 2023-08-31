@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION "public".recommend_products_based_on_likes(user_uuid UUID, limit_count INT)
-RETURNS SETOF recommended_product_table AS $$
+RETURNS TABLE(product_id INT, recommendation_score FLOAT) AS $$
 BEGIN
   RETURN QUERY
   WITH 

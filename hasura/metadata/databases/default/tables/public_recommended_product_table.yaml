@@ -1,0 +1,3 @@
+table:
+  name: recommended_product_table
+  schema: public
