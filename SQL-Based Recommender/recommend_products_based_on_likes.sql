@@ -12,7 +12,7 @@ user_activity AS (
       CASE WHEN "like" THEN 1 ELSE 0 END * 0.5 +
       CASE WHEN updated_at > current_date - interval '7 day' THEN 0.4 ELSE 0 END
     ) AS activity_score
-  FROM default.user_products
+  FROM "default".user_products
   WHERE user_id = user_uuid
   GROUP BY product_id
 ),
@@ -22,7 +22,7 @@ similar_users AS (
   SELECT 
     user_id,
     SUM(ua.activity_score * up.activity_score) AS similarity_score
-  FROM default.user_products AS up
+  FROM "default".user_products AS up
   JOIN user_activity AS ua ON up.product_id = ua.product_id
   WHERE up.user_id != user_uuid
   GROUP BY user_id
@@ -35,7 +35,7 @@ recommendation_scores AS (
   SELECT 
     up.product_id,
     SUM(up.activity_score * su.similarity_score) AS recommendation_score
-  FROM default.user_products AS up
+  FROM "default".user_products AS up
   JOIN similar_users AS su ON up.user_id = su.user_id
   GROUP BY up.product_id
 )
