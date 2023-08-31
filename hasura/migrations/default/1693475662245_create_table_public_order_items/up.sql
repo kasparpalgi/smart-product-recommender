@@ -1,1 +1,0 @@
-CREATE TABLE "public"."order_items" ("id" serial NOT NULL, "order_id" integer NOT NULL, "product_id" integer NOT NULL, "quantity" numeric NOT NULL DEFAULT 1, "price" numeric NOT NULL DEFAULT 0, PRIMARY KEY ("id") );
