@@ -9,6 +9,13 @@ array_relationships:
         table:
           name: order_items
           schema: public
+  - name: product_tags
+    using:
+      foreign_key_constraint_on:
+        column: product_id
+        table:
+          name: product_tags
+          schema: public
   - name: user_products
     using:
       foreign_key_constraint_on:
