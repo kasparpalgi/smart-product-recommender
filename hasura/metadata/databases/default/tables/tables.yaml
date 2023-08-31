@@ -14,7 +14,6 @@
 - "!include public_product_tags.yaml"
 - "!include public_products.yaml"
 - "!include public_recommended_product_table.yaml"
-- "!include public_recommended_product_temp.yaml"
 - "!include public_tags.yaml"
 - "!include public_user_products.yaml"
 - "!include storage_buckets.yaml"
