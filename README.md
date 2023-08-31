@@ -1,20 +1,32 @@
 # Smart product reccomender
 
-Hasura & PostgreSQL hosted in NHost free account. Password publickly in the config file.
+Hasura & PostgreSQL (PL/pgSQL STABLE) hosted in NHost free account. Password publickly in the config file.
 
 ## The plan
 
 ### SQL-Based Recommender
 
-Improve the SQL function [recommend_products_based_on_likes.sql](<SQL-Based Recommender/recommend_products_based_on_likes.sql>)to carry out some basic recommendations. Find the top X (eg. 3-4) products that are most often bought and/or liked by users who liked/viewed/bought the same products as the current user. Finally, I should take in consideration the order/like/view date and give more weight to the more recent ones.
+The [recommend_products_based_on_likes](<SQL-Based Recommender/recommend_products_based_on_likes.sql>) function takes a `user_uuid` and a `limit_count` as input arguments and then finds a set of recommended products for the given user based on similar users' activities by calculating recommendation scores for products based on the sum of:
+
+* Views (multiplied by 0.1)
+* Likes (multiplied by 0.5)
+* Recent activity within the last 14 days (additional score of 0.4)
+
+Steps:
+1. Identify users who have interacted with the same products as the target user.
+2. For each product interacted with by these similar users, a recommendation score is calculated based on views, likes, and recency.
+3. Products are sorted by their recommendation score and limited to the top `limit_count`.
+
+Next Steps:
+* Add in consideration additional user-specific factors like age & locale
+* Take in consideration product categories and tags
+* Take in consideration products ordered
+* Take in consideration products with higher profit margins, stock levels, sort order set by admins, etc.
 
 ### Collaborative Filtering & Machine Learning
 For collaborative filtering, I consider to use libraries like (Surprise)[https://surpriselib.com], (scikit-learn)[https://scikit-learn.org] or similar to do the heavy lifting.
 
 Considering machine learning models like (Neural Collaborative Filtering)[https://towardsdatascience.com/neural-collaborative-filtering-96cef1009401], [Factorization Machines](https://towardsdatascience.com/factorization-machines-for-item-recommendation-with-implicit-feedback-data-5655a7c749db), or Deep Learning models. These would take into account more complex relations and could combine content and collaborative methods. Would need to train these models on historical data and then use them to make future recommendations. Need tons of more data to train these models.
-
-### Content-Based Filtering
-Use categories and tags of each product.
 
 ### Finally: Combining Methods
 Take recommendations from each method and combine them by weighting them based on the confidence of each method.
@@ -82,3 +94,7 @@ etc.
 * product_id - Integer, FK to default.products.id
 * quantity - Numeric, default: 1
 * price - Numeric, default: 0
+
+### default.recommended_product_table (used only by the recommend_products_based_on_likes function)
+* product_id - Integer, nullable
+* reccomendation_score - Numberic, nullable

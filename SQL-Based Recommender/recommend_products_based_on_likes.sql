@@ -18,7 +18,7 @@ BEGIN
       SUM(
         up.views * 0.1 + 
         CASE WHEN up."like" THEN 1 ELSE 0 END * 0.5 +
-        CASE WHEN up.updated_at > current_date - interval '7 day' THEN 0.4 ELSE 0 END
+        CASE WHEN up.updated_at > current_date - interval '14 day' THEN 0.4 ELSE 0 END
       ) AS recommendation_score
     FROM "public".user_products AS up
     WHERE up.user_id IN (SELECT user_id FROM similar_users)
