@@ -9,7 +9,7 @@ user_activity AS (
     product_id,
     SUM(
       views * 0.1 + 
-      CASE WHEN like THEN 1 ELSE 0 END * 0.5 +
+      CASE WHEN "like" THEN 1 ELSE 0 END * 0.5 +
       CASE WHEN updated_at > current_date - interval '7 day' THEN 0.4 ELSE 0 END
     ) AS activity_score
   FROM default.user_products
