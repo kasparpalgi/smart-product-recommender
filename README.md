@@ -2,8 +2,22 @@
 
 Hasura & PostgreSQL hosted in NHost free account. Password publickly in the config file.
 
-## Plan
+## The plan
 
+### SQL-Based Recommender
+
+Improve the SQL function [recommend_products_based_on_likes.sql](<SQL-Based Recommender/recommend_products_based_on_likes.sql>)to carry out some basic recommendations. Find the top C (eg. 3-4) products that are most often bought and/or liked by users who liked/viewed/bought the same products as the current user. Finally, I should take in consideration the order/like/view date and give more weight to the more recent ones.
+
+### Collaborative Filtering & Machine Learning
+For collaborative filtering, I consider to use libraries like (Surprise)[https://surpriselib.com], (scikit-learn)[https://scikit-learn.org] or similar to do the heavy lifting.
+
+Considering machine learning models like (Neural Collaborative Filtering)[https://towardsdatascience.com/neural-collaborative-filtering-96cef1009401], [Factorization Machines](https://towardsdatascience.com/factorization-machines-for-item-recommendation-with-implicit-feedback-data-5655a7c749db), or Deep Learning models. These would take into account more complex relations and could combine content and collaborative methods. Would need to train these models on historical data and then use them to make future recommendations. Need tons of more data to train these models.
+
+### Content-Based Filtering
+Use categories and tags of each product.
+
+### Finally: Combining Methods
+Take recommendations from each method and combine them by weighting them based on the confidence of each method.
 
 ## Tables
 
