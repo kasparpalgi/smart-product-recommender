@@ -18,6 +18,26 @@ More fields... See: [auth_users.yaml](hasura/metadata/databases/default/tables/a
 * description - Text
 etc.
 
+### default.categories
+* id - Integer, primary key, default: autoincrement
+* name - Text
+* parent_id - Integer, FK to default.categories.id
+
+### default.product_categories
+* id - Integer, primary key, default: autoincrement
+* product_id - Integer, FK to default.products.id
+* category_id - Integer, FK to default.categories.id
+* sort_order - Integer, default: 0
+
+### default.tags
+* id - Integer, primary key, default: autoincrement
+* name - Text
+
+### default.product_tags
+* id - Integer, primary key, default: autoincrement
+* product_id - Integer, FK to default.products.id
+* tag_id - Integer, FK to default.categories.id
+
 ### default.user_products
 
 * id - Integer, primary key, default: autoincrement

@@ -13,3 +13,10 @@ array_relationships:
         table:
           name: order_items
           schema: public
+  - name: product_categories
+    using:
+      foreign_key_constraint_on:
+        column: product_id
+        table:
+          name: product_categories
+          schema: public
