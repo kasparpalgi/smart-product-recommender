@@ -9,6 +9,15 @@ array_relationships:
         table:
           name: order_items
           schema: public
+  - name: product_categories
+    using:
+      manual_configuration:
+        column_mapping:
+          id: product_id
+        insertion_order: null
+        remote_table:
+          name: product_categories
+          schema: public
   - name: product_tags
     using:
       foreign_key_constraint_on:
