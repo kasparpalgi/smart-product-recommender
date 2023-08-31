@@ -1,0 +1,18 @@
+{
+    "data": {
+        "recommend_products_based_on_likes": [
+            {
+                "product_id": 5,
+                "recommendation_score": 3.4
+            },
+            {
+                "product_id": 4,
+                "recommendation_score": 1.8
+            },
+            {
+                "product_id": 1,
+                "recommendation_score": 1.7
+            }
+        ]
+    }
+}
