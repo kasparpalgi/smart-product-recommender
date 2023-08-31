@@ -1,5 +1,6 @@
 version: 3
-endpoint: http://localhost:8080
+endpoint: https://tevgouditbgnspgoghxr.hasura.eu-central-1.nhost.run
+admin_secret: gSu&,&)5+LzD!-n:sbN5F4*#r:1PCg1n
 metadata_directory: metadata
 actions:
   kind: synchronous
